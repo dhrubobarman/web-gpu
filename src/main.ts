@@ -3,11 +3,20 @@ import { checkForWebGPU } from '@/utils/checkForWebGpu';
 import './style.scss';
 import { createElement } from '@/utils/createElement';
 
-const canvas = createElement('canvas', {
-  id: 'webgpu-canvas',
-  width: 640,
-  height: 480
+const container = createElement('div', {
+  id: 'container',
+  className: 'min-h-screen flex items-center justify-center'
 });
+
+const canvas = createElement(
+  'canvas',
+  {
+    id: 'webgpu-canvas',
+    width: 640,
+    height: 480
+  },
+  container
+);
 
 async function main() {
   const isGpuAvailable = checkForWebGPU();
